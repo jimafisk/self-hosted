@@ -1,4 +1,6 @@
-# Self-hosted primo
+# Self-hosted primo (WIP)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 The goal of this project is to make it possible to run primo on your own node server - including everything needed to run the typical CMS like authentication, the ability to invite collaborators, a database for code and content, etc.
 

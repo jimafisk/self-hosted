@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "concurrently --kill-others \"rollup -c -w\" \"nodemon index.js\"",
-    "start": "sirv public --port 5001 --single",
+    "start": "node index.js",
     "test": "jest",
     "validate": "svelte-check"
   },
