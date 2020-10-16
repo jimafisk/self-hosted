@@ -9,7 +9,7 @@ The initial strategy was to leverage the filesystem to host the static site & us
 1. Connect MongoDB
 1. Select a hosting provider and enter key
 
-## Core Pieces
+## First Things First
 
 * Primo
   * accessible from `edit` subdomain ✅
@@ -29,7 +29,6 @@ The initial strategy was to leverage the filesystem to host the static site & us
     * Uploading generated site ✅
     * [Set region](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/s3-example-creating-buckets.html)
     * [Configuring S3 bucket as site host](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putBucketWebsite-property) (set permissions & hosting)
-    * [Set domain name](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html#website-hosting-custom-domain-walkthrough-domain-registry)
 * Server-side rendering ✅
 * [Email Authentication](http://www.passportjs.org/)
   * Signing in w/ username and password ✅
@@ -42,3 +41,7 @@ The initial strategy was to leverage the filesystem to host the static site & us
   * Create admin account
   * Connect database
   * Select a host
+
+## After
+
+* [Set domain name](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html#website-hosting-custom-domain-walkthrough-domain-registry)

@@ -6,24 +6,27 @@
   import {TextField,Select,PrimaryButton,Spinner} from '@primo-app/ui'
 
   async function connectHost() {
-    console.log({s3Credentials})
     loading = true
-    const {data} = await axios.post('http://localhost:3005/__fn/hosting/setup', s3Credentials)
-    console.log(data)
+    error = false
+    const {data} = await axios.post('http://localhost:3005/__fn/setup/hosting', s3Credentials)
+    loading = false
     if (data.success) {
       dispatch('click')
+    } else {
+      error = true
     }
   }
 
   let keyID = ''
   let accessKey = ''
-  let region = 'us-east-1'
+  let region = 'us-east-2'
   $: disabled = !keyID || !accessKey
 
   $: s3Credentials = { keyID, accessKey, region }
 
   let providerSelected = false
   let loading = false
+  let error = false
 
 </script>
 
@@ -63,7 +66,7 @@
     <section class="transition-opacity duration-1000" in:fade>
       <hr class="mt-8 mb-4 border-gray-100">
       <h3 class="text-sm font-semibold pt-2">2. Enter Access Key</h3>
-      <p class="text-xs text-gray-400 mb-3">Follow these <a href="https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html" class="underline" target="_blank">instructions</a> to find your AWS key.</p>
+      <p class="text-xs text-gray-400 mb-3">You can create an Access Key from your <a href="https://console.aws.amazon.com/iam/home?#/security_credentials">Management Console</a>.</p>
       <form on:submit|preventDefault={connectHost}>
         <TextField label="Key ID" size="small" bind:value={keyID} placeholder="LKIAIOI4EH5KZDTDJH7N" variants="mb-4" />
         <TextField label="Access Key" size="small" bind:value={accessKey} placeholder="AOj0jxZYRaVNtUemRVO60UNY4xlpieVrDfyO+P+B" variants="mb-4" />
@@ -73,7 +76,7 @@
           info="The closer the region is to you, the faster your site uploads"
           bind:value={region}
           options={[
-            { id: 'us-east-1', label: 'North America (East)' },
+            { id: 'us-east-2', label: 'North America (East)' },
             { id: 'us-west-1', label: 'North America (West)' },
             { id: 'ap-northeast-1', label: 'South America' },
             { id: 'eu-central-1', label: 'Europe' },
@@ -84,6 +87,11 @@
           ]}
           variants="mb-6"
         />
+        {#if error}
+          <div class="text-sm text-gray-700 p-4 bg-yellow-300 mb-4">
+            Could not connect to AWS with provided Access Key. Follow these <a href="https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html">instruction</a> to ensure you're providing the correct keys.
+          </div>
+        {/if}
         <PrimaryButton type="submit" {disabled}>
           {#if !loading}
             Connect AWS

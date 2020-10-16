@@ -77,7 +77,7 @@
   }
 
   .steps ol {
-    margin: -0.75rem;
+    margin: -0.76rem;
     @apply bg-codeblack grid grid-cols-3 mb-0 border-b-4;
   }
 

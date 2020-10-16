@@ -92,9 +92,8 @@ express()
   })
   .post('/__fn/setup/hosting', async (req, res) => {
     console.log('TODO', req.body)
-    res.send({ success: true })
-    // const response = setupS3(req.body)
-    // res.send(response);
+    const response = await setupS3(req.body)
+    res.send(response);
   })
 
   // Static Site Generation
