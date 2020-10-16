@@ -8,6 +8,9 @@
     "test": "jest",
     "validate": "svelte-check"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.1",
     "@babel/helper-compilation-targets": "^7.12.1",
