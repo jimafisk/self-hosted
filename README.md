@@ -4,12 +4,10 @@
 
 The goal of this project is to make it possible to run primo on your own node server - including everything needed to run the typical CMS like authentication, the ability to invite collaborators, a database for code and content, etc.
 
-The initial strategy was to leverage the filesystem to host the static site & use JSON files as a database, but it turns out that's not possible with Heroku, so instead we'll be using an AWS S3 bucket for all the static assets (and the JSON database, at least for now). This way, the only steps which should be necessary to get the primo server up and running will be:
+Setup and maintenance should be as simple as possible, so MongoDB Atlas will be used as a database and AWS S3 + Cloudflare will be used for hosting, and both will be configured from primo during setup. This way, the only steps which should be necessary to get the primo server up and running will be:
 
 1. Click 'Deploy to Heroku' button
-1. Create user account (w/ email and password)
-1. Connect MongoDB
-1. Select a hosting provider and enter key
+1. Open app and go through setup (account, db, hosting) 
 
 ## First Things First
 
