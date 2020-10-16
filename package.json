@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
+    "@babel/helper-compilation-targets": "^7.12.1",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.10.3",
     "@babel/preset-env": "^7.10.2",
@@ -70,6 +71,7 @@
     "lowdb": "^1.0.0",
     "mongoose": "^5.10.9",
     "mousetrap": "^1.6.5",
+    "nodemailer": "^6.4.14",
     "object-path": "^0.11.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
