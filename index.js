@@ -10,9 +10,9 @@ console.log('CONFIGURATION', process.env.HEROKU_API_TOKEN)
 // Heroku
 const Heroku = require('heroku-client')
 const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
-heroku.get('/apps/primo/config-vars').then(apps => {
-  console.log(apps)
-})
+// heroku.get('/apps/primo/config-vars').then(apps => {
+//   console.log(apps)
+// })
 
 
 // Serve primo
