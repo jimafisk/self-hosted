@@ -1,0 +1,10 @@
+.env
+node_modules
+db.json
+build/**/*
+data/**/*
+public/build/**/*
+public/preview/**/*
+public/build
+public/bundle.js
+public/bundle.js.map

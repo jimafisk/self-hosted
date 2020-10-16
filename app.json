@@ -1,0 +1,9 @@
+{
+  "name": "primo",
+  "description": "An IDE/CMS for making small custom websites",
+  "repository": "https://github.com/heroku/node-js-getting-started",
+  "logo": "https://primocloud.io/logo.svg",
+  "keywords": ["IDE", "CMS", "static site generator", "component library"],
+  "website": "https://primo.af/",
+  "image": "heroku/node"
+}
