@@ -37,12 +37,12 @@ const bucketID = process.env.AWS_S3_BUCKET
 const bucketRegion = process.env.AWS_S3_REGION
 const {setupS3,uploadFile} = require('./server/hosting/aws')
 
-// Primo
-function serve(req, res, next) {
-  const editing = req.headers.host.split('.')[0] === 'edit'
-  if (editing) primoServe(req, res, next) 
-  else next()
-}
+// // Primo
+// function serve(req, res, next) {
+//   const editing = req.headers.host.split('.')[0] === 'edit'
+//   if (editing) primoServe(req, res, next) 
+//   else next()
+// }
 
 // Authentication
 const {passport,createUser} = require('./server/auth')
@@ -52,7 +52,7 @@ express()
   .use(passport.session())
   .use(json())
   .use(cors)
-  .use(serve)
+  .use(primoServe)
   .post('/__fn/postcss', async (req, res) => {
     const styles = await processStyles(req.body)
     res.send(styles);
@@ -104,13 +104,13 @@ express()
   })
 
   // Static Site Generation
-  .get('/', (req, res) => {
-    res.redirect(`http://${bucketID}.s3-website.${bucketRegion}.amazonaws.com/`)
-  })
-  .get('/:page', (req, res) => {
-    const {page} = req.params
-    res.redirect(`http://${bucketID}.s3-website.${bucketRegion}.amazonaws.com/${page}`)
-  })
+  // .get('/', (req, res) => {
+  //   res.redirect(`http://${bucketID}.s3-website.${bucketRegion}.amazonaws.com/`)
+  // })
+  // .get('/:page', (req, res) => {
+  //   const {page} = req.params
+  //   res.redirect(`http://${bucketID}.s3-website.${bucketRegion}.amazonaws.com/${page}`)
+  // })
 
   // Server-side Rendering (assets served from S3)
   // .get('/:page.html', (req, res) => {
